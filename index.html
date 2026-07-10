@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DopaLabs by fgtranime | Cute Solarpunk Tools</title>
+  <meta name="description" content="DopaLabs is fgtranime's tiny lab for cute, useful browser products. Meet BloopCam, the first product.">
+  <meta name="theme-color" content="#baf269">
+  <link rel="icon" href="data:image/png;base64,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">
+  <style>
+    :root {
+      color-scheme: dark;
+      --night: #06140f;
+      --moss: #0d241b;
+      --canopy: #153521;
+      --leaf: #baf269;
+      --leaf-2: #d9ff8d;
+      --mint: #58e0c3;
+      --cream: #fff7d6;
+      --sun: #ffd166;
+      --berry: #ff8ec7;
+      --water: #7dd3fc;
+      --text: #f8fff0;
+      --muted: rgba(248, 255, 240, 0.70);
+      --soft: rgba(248, 255, 240, 0.12);
+      --glass: rgba(248, 255, 240, 0.105);
+      --glass-strong: rgba(248, 255, 240, 0.17);
+      --line: rgba(228, 255, 210, 0.22);
+      --shadow: rgba(0, 0, 0, 0.36);
+      --radius: 30px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% -6%, rgba(255, 209, 102, 0.44), transparent 30%),
+        radial-gradient(circle at 92% 6%, rgba(88, 224, 195, 0.38), transparent 31%),
+        radial-gradient(circle at 74% 86%, rgba(255, 142, 199, 0.20), transparent 30%),
+        radial-gradient(circle at 18% 92%, rgba(186, 242, 105, 0.26), transparent 38%),
+        linear-gradient(145deg, #06140f 0%, #0a221a 47%, #18341f 100%);
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body::before {
+      opacity: 0.72;
+      background:
+        linear-gradient(115deg, transparent 0 44%, rgba(255,255,255,0.055) 45% 46%, transparent 47% 100%),
+        linear-gradient(72deg, transparent 0 59%, rgba(186,242,105,0.055) 60% 61%, transparent 62% 100%);
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+    }
+
+    body::after {
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.11) 0 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(186,242,105,0.10) 0 1px, transparent 1.5px);
+      background-size: 54px 54px, 88px 88px;
+      background-position: 0 0, 22px 36px;
+      opacity: 0.42;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .page { width: min(1160px, calc(100% - 34px)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 14px;
+      z-index: 10;
+      margin: 14px auto 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(6, 20, 15, 0.58);
+      box-shadow: 0 24px 70px var(--shadow), inset 0 1px 0 rgba(255,255,255,0.10);
+      backdrop-filter: blur(22px) saturate(1.3);
+    }
+
+    .brand { display: flex; align-items: center; gap: 10px; padding-left: 6px; }
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 34% 26%, var(--cream), transparent 28%),
+        linear-gradient(135deg, var(--leaf), var(--mint));
+      color: #07140f;
+      font-weight: 1000;
+      box-shadow: 0 18px 38px rgba(186, 242, 105, 0.22);
+    }
+    .brand strong { display: block; letter-spacing: -0.04em; }
+    .brand small { display: block; color: var(--muted); margin-top: 1px; }
+
+    .nav-links { display: flex; align-items: center; gap: 6px; }
+    .nav-links a {
+      padding: 10px 13px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 14px;
+      transition: 160ms ease;
+    }
+    .nav-links a:hover { color: var(--text); background: rgba(248,255,240,0.10); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.78fr);
+      gap: 22px;
+      align-items: stretch;
+      padding: 24px 0 18px;
+    }
+
+    .glass {
+      border: 1px solid var(--line);
+      background: var(--glass);
+      box-shadow: 0 30px 90px var(--shadow), inset 0 1px 0 rgba(255,255,255,0.11);
+      backdrop-filter: blur(24px) saturate(1.35);
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 42px;
+      padding: clamp(28px, 5vw, 58px);
+      min-height: 560px;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -120px;
+      top: -120px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(186,242,105,0.22), transparent 66%);
+      filter: blur(2px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: #07140f;
+      background: linear-gradient(135deg, var(--leaf), var(--sun));
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 13px;
+      box-shadow: 0 12px 34px rgba(255, 209, 102, 0.18);
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 24px 0 16px;
+      font-size: clamp(50px, 9vw, 106px);
+      line-height: 0.88;
+      letter-spacing: -0.083em;
+    }
+    .hero p {
+      max-width: 690px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.55;
+    }
+
+    .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: transform 160ms ease, filter 160ms ease;
+    }
+    .button:hover { transform: translateY(-2px); filter: brightness(1.06); }
+    .button.primary { color: #07140f; background: linear-gradient(135deg, var(--leaf), var(--mint)); }
+    .button.secondary { border: 1px solid var(--line); background: rgba(248,255,240,0.12); color: var(--text); }
+
+    .hero-side {
+      position: relative;
+      overflow: hidden;
+      border-radius: 42px;
+      padding: 24px;
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-side::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,0.10);
+      pointer-events: none;
+    }
+
+    .product-orb {
+      position: relative;
+      margin: 12px auto 22px;
+      width: min(280px, 78vw);
+      aspect-ratio: 1;
+      border-radius: 42%;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 34% 24%, rgba(255,255,255,0.70), transparent 18%),
+        radial-gradient(circle at 64% 82%, rgba(255,142,199,0.24), transparent 32%),
+        linear-gradient(135deg, rgba(186,242,105,0.24), rgba(88,224,195,0.18));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.34), 0 34px 80px rgba(88,224,195,0.16);
+    }
+    .product-orb::before,
+    .product-orb::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px 999px 999px 40px;
+      background: linear-gradient(135deg, var(--leaf-2), var(--mint));
+      opacity: 0.92;
+      filter: drop-shadow(0 15px 28px rgba(0,0,0,0.24));
+    }
+    .product-orb::before { width: 74px; height: 44px; left: 12px; top: 44px; transform: rotate(-32deg); }
+    .product-orb::after { width: 88px; height: 52px; right: 4px; bottom: 52px; transform: rotate(138deg); }
+    .product-icon-shell {
+      position: relative;
+      z-index: 1;
+      width: 152px;
+      height: 152px;
+      border-radius: 38px;
+      padding: 10px;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.20);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.18);
+      backdrop-filter: blur(16px);
+      transform: rotate(-4deg);
+    }
+    .product-icon-shell img { width: 100%; height: 100%; border-radius: 30px; display: block; }
+
+    .mini-card {
+      position: relative;
+      border-radius: 28px;
+      padding: 18px;
+      background: rgba(248,255,240,0.11);
+      border: 1px solid var(--line);
+    }
+    .mini-card h2 { margin: 0 0 8px; font-size: 28px; letter-spacing: -0.055em; }
+    .mini-card p { margin: 0; color: var(--muted); line-height: 1.5; }
+
+    .section { padding: 52px 0 16px; }
+    .section-heading { display: flex; justify-content: space-between; gap: 18px; align-items: end; margin-bottom: 18px; }
+    .section-heading h2 { margin: 0; font-size: clamp(34px, 5vw, 62px); line-height: 0.93; letter-spacing: -0.065em; }
+    .section-heading p { max-width: 450px; margin: 0; color: var(--muted); line-height: 1.55; }
+
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card {
+      position: relative;
+      overflow: hidden;
+      min-height: 220px;
+      padding: 22px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--glass);
+      box-shadow: 0 24px 72px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.10);
+      backdrop-filter: blur(22px) saturate(1.25);
+    }
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      right: -60px;
+      top: -60px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 67%);
+    }
+    .card .tag {
+      display: inline-flex;
+      margin-bottom: 18px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: #07140f;
+      background: var(--cream);
+      font-size: 12px;
+      font-weight: 1000;
+    }
+    .card h3 { margin: 0 0 10px; font-size: 24px; letter-spacing: -0.045em; }
+    .card p { margin: 0; color: var(--muted); line-height: 1.55; }
+
+    .product-card {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 18px;
+      align-items: stretch;
+      padding: 18px;
+      border-radius: 40px;
+      background:
+        linear-gradient(135deg, rgba(255,209,102,0.12), rgba(88,224,195,0.09), rgba(255,142,199,0.08)),
+        var(--glass);
+      border: 1px solid rgba(228, 255, 210, 0.24);
+      box-shadow: 0 34px 90px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.12);
+      backdrop-filter: blur(24px) saturate(1.32);
+    }
+    .product-preview {
+      min-height: 430px;
+      border-radius: 30px;
+      padding: 22px;
+      background:
+        radial-gradient(circle at 24% 18%, rgba(255,255,255,0.18), transparent 24%),
+        linear-gradient(160deg, rgba(6,20,15,0.45), rgba(248,255,240,0.08));
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+    }
+    .browser-mock {
+      width: 100%;
+      max-width: 390px;
+      border-radius: 28px;
+      overflow: hidden;
+      background: rgba(4, 16, 12, 0.72);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.36);
+    }
+    .mock-top { display: flex; gap: 7px; padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.10); }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--berry); }
+    .dot:nth-child(2) { background: var(--sun); }
+    .dot:nth-child(3) { background: var(--leaf); }
+    .mock-video {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(186,242,105,0.20), transparent 25%),
+        radial-gradient(circle at 70% 76%, rgba(88,224,195,0.22), transparent 28%),
+        linear-gradient(135deg, #07140f, #0c2a20);
+    }
+    .mock-video img { width: 86px; height: 86px; border-radius: 24px; filter: drop-shadow(0 18px 28px rgba(0,0,0,0.32)); }
+    .watermark {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(5, 23, 17, 0.72);
+      border: 1px solid rgba(222,255,220,0.34);
+      font-weight: 900;
+      font-size: 13px;
+    }
+    .watermark img { width: 24px; height: 24px; border-radius: 8px; }
+
+    .product-copy { padding: 12px 10px 8px; }
+    .product-copy h2 { margin: 0 0 12px; font-size: clamp(38px, 6vw, 76px); line-height: 0.90; letter-spacing: -0.075em; }
+    .product-copy p { color: var(--muted); line-height: 1.62; font-size: 17px; }
+
+    .feature-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 24px 0; }
+    .feature {
+      padding: 13px;
+      border-radius: 20px;
+      background: rgba(248,255,240,0.10);
+      border: 1px solid rgba(228,255,210,0.15);
+      color: rgba(248,255,240,0.86);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .price { padding: 24px; border-radius: 30px; min-height: 250px; }
+    .price strong { display: block; font-size: 14px; color: var(--muted); }
+    .price h3 { margin: 10px 0; font-size: 42px; letter-spacing: -0.06em; }
+    .price ul { padding-left: 20px; margin: 14px 0 0; color: var(--muted); line-height: 1.8; }
+    .pro { background: linear-gradient(135deg, rgba(255,209,102,0.16), rgba(88,224,195,0.10)); border-color: rgba(255,209,102,0.32); }
+
+    .footer {
+      margin: 56px 0 28px;
+      padding: 24px;
+      border-radius: 32px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      color: var(--muted);
+    }
+    .footer strong { color: var(--text); }
+
+    .cute-bites { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .bite {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(248,255,240,0.10);
+      border: 1px solid rgba(228,255,210,0.15);
+      color: rgba(248,255,240,0.80);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    @media (max-width: 860px) {
+      .nav { border-radius: 28px; align-items: flex-start; }
+      .nav-links { display: none; }
+      .hero, .product-card, .pricing { grid-template-columns: 1fr; }
+      .hero-card, .hero-side { min-height: auto; }
+      .cards { grid-template-columns: 1fr; }
+      .section-heading { display: block; }
+      .section-heading p { margin-top: 12px; }
+      .feature-list { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="page nav" aria-label="Main navigation">
+    <a class="brand" href="#top" aria-label="DopaLabs home">
+      <span class="brand-mark">D</span>
+      <span><strong>DopaLabs</strong><small>by fgtranime</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#products">Products</a>
+      <a href="#plans">Plans</a>
+      <a href="#lab">Lab vibe</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main id="top" class="page">
+    <section class="hero">
+      <div class="hero-card glass">
+        <span class="eyebrow">🌿 first product growing now</span>
+        <h1>Cute tools with a little dopamine glow.</h1>
+        <p>DopaLabs is fgtranime’s tiny product garden, built for browser tools that feel premium, calm, tasty, and useful. The first seed is BloopCam, a local webcam privacy screen for Chrome.</p>
+        <div class="cta-row">
+          <a class="button primary" href="#products">Meet BloopCam</a>
+          <a class="button secondary" href="#plans">See Pro plan</a>
+        </div>
+        <div class="cute-bites" aria-label="Brand traits">
+          <span class="bite">bio solarpunk</span>
+          <span class="bite">glassmorphism</span>
+          <span class="bite">cute utility</span>
+          <span class="bite">privacy-first</span>
+          <span class="bite">browser-native</span>
+        </div>
+      </div>
+
+      <aside class="hero-side glass" aria-label="Featured product icon">
+        <div class="product-orb">
+          <div class="product-icon-shell">
+            <img src="data:image/png;base64,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" alt="BloopCam icon">
+          </div>
+        </div>
+        <div class="mini-card">
+          <h2>BloopCam</h2>
+          <p>A sleek privacy screen that replaces browser camera requests with a local generated feed, with optional Pro custom media.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section id="lab" class="section">
+      <div class="section-heading">
+        <h2>What DopaLabs feels like</h2>
+        <p>Modern software, but softer. Frosted glass, edible colors, solar leaves, clean cards, and products that look like they were grown, not assembled in a gray factory.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="tag">01 · tasty UI</span>
+          <h3>Bright, soft, clickable</h3>
+          <p>Mint, citrus, cream, and berry accents make tools feel friendly without becoming childish.</p>
+        </article>
+        <article class="card">
+          <span class="tag">02 · useful first</span>
+          <h3>No fake complexity</h3>
+          <p>Each product should solve one annoying internet problem, then polish the experience until it feels premium.</p>
+        </article>
+        <article class="card">
+          <span class="tag">03 · local by default</span>
+          <h3>Private where possible</h3>
+          <p>BloopCam’s core feed is generated locally. That privacy-first pattern should guide future DopaLabs products.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="products" class="section">
+      <div class="product-card">
+        <div class="product-preview">
+          <div class="browser-mock" aria-label="BloopCam product preview">
+            <div class="mock-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="mock-video">
+              <img src="data:image/png;base64,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" alt="BloopCam icon preview">
+              <span class="watermark"><img src="data:image/png;base64,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" alt=""> BloopCam</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-copy">
+          <span class="eyebrow">🍃 first DopaLabs product</span>
+          <h2>BloopCam</h2>
+          <p>BloopCam is a Chrome extension that sends a local privacy screen to websites that ask for your camera. Free users keep a readable BloopCam watermark. Pro users can remove it and upload an image or GIF as their privacy screen.</p>
+          <div class="feature-list">
+            <div class="feature">Protect-all-sites on by default</div>
+            <div class="feature">Custom camera label</div>
+            <div class="feature">Readable BloopCam watermark</div>
+            <div class="feature">Pro custom image/GIF feed</div>
+            <div class="feature">Local settings</div>
+            <div class="feature">Cute glass UI</div>
+          </div>
+          <div class="cta-row">
+            <a class="button primary" href="#" aria-label="Chrome Web Store link placeholder">Chrome Store soon</a>
+            <a class="button secondary" href="#contact">Follow DopaLabs</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="plans" class="section">
+      <div class="section-heading">
+        <h2>Simple launch plan</h2>
+        <p>Start free, let the watermark market the product, then offer a small Pro unlock for people who want a cleaner or customized feed.</p>
+      </div>
+      <div class="pricing">
+        <article class="price glass">
+          <strong>Free</strong>
+          <h3>$0</h3>
+          <p>Good for privacy mode and organic discovery.</p>
+          <ul>
+            <li>Protect all sites by default</li>
+            <li>Custom camera label</li>
+            <li>Readable BloopCam watermark</li>
+            <li>Blank generated privacy feed</li>
+          </ul>
+        </article>
+        <article class="price glass pro">
+          <strong>Pro</strong>
+          <h3>$4.99</h3>
+          <p>A simple one-time upgrade for clean output.</p>
+          <ul>
+            <li>Hide the BloopCam watermark</li>
+            <li>Upload image/GIF as the feed</li>
+            <li>Cover or contain media fit</li>
+            <li>Future premium presets</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2>Next product cards</h2>
+        <p>The layout is already made for more DopaLabs products. Add a new card, icon, color, tagline, and link when the second product exists.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="tag">next slot</span>
+          <h3>Product #2</h3>
+          <p>Reserved for your next browser tool. Keep it small, useful, and easy to explain in one sentence.</p>
+        </article>
+        <article class="card">
+          <span class="tag">next slot</span>
+          <h3>Product #3</h3>
+          <p>Use the same card system, but change the accent color and icon so every product has its own taste.</p>
+        </article>
+        <article class="card">
+          <span class="tag">lab notes</span>
+          <h3>Changelog garden</h3>
+          <p>Add updates, screenshots, demos, and release notes here once BloopCam is live on the store.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer id="contact" class="footer glass">
+      <div>
+        <strong>DopaLabs</strong><br>
+        Built by fgtranime. Cute, premium tools for a calmer internet.
+      </div>
+      <div class="cta-row" style="margin:0">
+        <a class="button secondary" href="mailto:hello@example.com">Replace email</a>
+        <a class="button primary" href="#top">Back to top</a>
+      </div>
+    </footer>
+  </main>
+
+  <!--
+    Quick edits after publishing:
+    1. Replace the Chrome Store soon href with your Chrome Web Store URL.
+    2. Replace hello@example.com with your real support email.
+    3. Add product screenshots inside the BloopCam product card.
+  -->
+</body>
+</html>
