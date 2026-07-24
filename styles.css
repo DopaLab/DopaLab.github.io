@@ -638,7 +638,8 @@ h2 {
   height: 100%;
   display: block;
   object-fit: cover;
-  object-position: center;
+  object-position: 50% 62%;
+  transform: scale(1.12);
 }
 
 .mascot-caption {
@@ -655,7 +656,7 @@ h2 {
 }
 
 .projects-panel {
-  grid-column: span 4;
+  grid-column: 9 / span 4;
   min-height: 330px;
   padding: 22px;
 }
@@ -702,10 +703,11 @@ h2 {
 }
 
 .side-project {
+  min-height: 86px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 14px;
+  padding: 10px;
   color: #fff;
   text-decoration: none;
   border-style: solid;
@@ -718,33 +720,108 @@ h2 {
 }
 
 .side-project-icon {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   display: grid;
   place-items: center;
-  background: var(--project-accent, var(--blue));
+  background: transparent;
   color: #07101f;
-  font-size: 20px;
-  font-weight: 950;
+  overflow: hidden;
+}
+
+.side-project-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
 }
 
 .side-project strong {
   display: block;
-  margin-top: 18px;
-  font-size: 18px;
+  margin-top: 7px;
+  font-size: 12px;
   text-transform: uppercase;
 }
 
 .side-project small {
   display: block;
-  margin-top: 5px;
+  margin-top: 4px;
   color: #91999f;
   font-family: "Rajdhani", sans-serif;
-  line-height: 1.35;
+  font-size: 9px;
+  line-height: 1.25;
+}
+
+.designs-panel {
+  grid-column: 9 / span 4;
+  min-height: 330px;
+  padding: 22px;
+  background: #101419;
+}
+
+.designs-slideshow {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin-top: 24px;
+  overflow: hidden;
+  background: #0b0e12;
+  border: 1px solid #3c434a;
+}
+
+.design-slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 0;
+  transition: opacity 700ms ease;
+}
+
+.design-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+.design-slide img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: #080a0c;
+}
+
+.design-slide figcaption {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 5px 7px;
+  background: rgba(7, 9, 11, 0.88);
+  border-left: 3px solid var(--orange);
+  color: var(--paper);
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.design-progress {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.design-progress span {
+  height: 4px;
+  background: #3c434a;
+}
+
+.design-progress span.is-active {
+  background: var(--orange);
 }
 
 .contact-shell {
-  grid-column: span 4;
+  grid-column: 1 / span 4;
   min-height: 410px;
   perspective: 1200px;
 }
@@ -923,6 +1000,7 @@ noscript {
   .stack-panel,
   .mascot-panel,
   .projects-panel,
+  .designs-panel,
   .contact-shell {
     grid-column: span 4;
   }
@@ -962,6 +1040,7 @@ noscript {
   .stack-panel,
   .mascot-panel,
   .projects-panel,
+  .designs-panel,
   .contact-shell {
     grid-column: 1;
   }
@@ -1033,6 +1112,7 @@ noscript {
   .about-panel,
   .stack-panel,
   .projects-panel,
+  .designs-panel,
   .contact-face {
     padding: 18px;
   }
