@@ -468,6 +468,23 @@ h2 {
   font-weight: 900;
 }
 
+.project-source-link {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  color: var(--paper);
+  font-size: 10px;
+  font-weight: 900;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.project-source-link:hover {
+  color: var(--orange);
+}
+
 .phone-mockup {
   position: relative;
   width: 230px;
@@ -543,7 +560,8 @@ h2 {
 }
 
 .stack-panel {
-  grid-column: span 4;
+  order: 14;
+  grid-column: 9 / span 4;
   min-height: 330px;
   padding: 22px;
 }
@@ -590,7 +608,8 @@ h2 {
 }
 
 .mascot-panel {
-  grid-column: span 4;
+  order: 12;
+  grid-column: 5 / span 4;
   grid-row: span 2;
   min-height: 690px;
   background: #dceaff;
@@ -656,6 +675,7 @@ h2 {
 }
 
 .projects-panel {
+  order: 13;
   grid-column: 9 / span 4;
   min-height: 330px;
   padding: 22px;
@@ -753,13 +773,23 @@ h2 {
 }
 
 .designs-panel {
-  grid-column: 9 / span 4;
+  order: 10;
+  grid-column: 1 / span 4;
   min-height: 330px;
   padding: 22px;
   background: #101419;
 }
 
-.designs-slideshow {
+.photography-panel {
+  order: 11;
+  grid-column: 1 / span 4;
+  min-height: 330px;
+  padding: 22px;
+  background: #101419;
+}
+
+.designs-slideshow,
+.photography-slideshow {
   position: relative;
   aspect-ratio: 16 / 9;
   margin-top: 24px;
@@ -768,7 +798,8 @@ h2 {
   border: 1px solid #3c434a;
 }
 
-.design-slide {
+.design-slide,
+.photography-slide {
   position: absolute;
   inset: 0;
   margin: 0;
@@ -778,13 +809,15 @@ h2 {
   transition: opacity 700ms ease;
 }
 
-.design-slide.is-active {
+.design-slide.is-active,
+.photography-slide.is-active {
   opacity: 1;
   visibility: visible;
   z-index: 1;
 }
 
-.design-slide img {
+.design-slide img,
+.photography-slide img {
   width: 100%;
   height: 100%;
   display: block;
@@ -792,7 +825,8 @@ h2 {
   background: #080a0c;
 }
 
-.design-slide figcaption {
+.design-slide figcaption,
+.photography-slide figcaption {
   position: absolute;
   left: 10px;
   bottom: 10px;
@@ -804,24 +838,61 @@ h2 {
   font-weight: 900;
 }
 
-.design-progress {
+.slideshow-controls {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 6px;
+  grid-template-columns: 32px minmax(0, 1fr) 32px;
+  align-items: center;
+  gap: 8px;
   margin-top: 10px;
 }
 
-.design-progress span {
+.slideshow-button {
+  width: 32px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  background: #0b0e12;
+  border: 1px solid #3c434a;
+  color: var(--paper);
+  font: inherit;
+  cursor: pointer;
+}
+
+.slideshow-button:hover,
+.slideshow-button:focus-visible {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.design-progress,
+.photography-progress {
+  display: grid;
+  gap: 6px;
+}
+
+.design-progress {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.photography-progress {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.design-progress span,
+.photography-progress span {
   height: 4px;
   background: #3c434a;
 }
 
-.design-progress span.is-active {
+.design-progress span.is-active,
+.photography-progress span.is-active {
   background: var(--orange);
 }
 
 .contact-shell {
-  grid-column: 1 / span 4;
+  order: 15;
+  grid-column: 9 / span 4;
   min-height: 410px;
   perspective: 1200px;
 }
@@ -997,12 +1068,20 @@ noscript {
   .studio-panel,
   .vybrik-panel,
   .about-panel,
-  .stack-panel,
+  .stack-panel {
+    grid-column: span 4;
+  }
+
+  .designs-panel,
+  .photography-panel {
+    grid-column: 1 / span 4;
+  }
+
   .mascot-panel,
   .projects-panel,
-  .designs-panel,
+  .stack-panel,
   .contact-shell {
-    grid-column: span 4;
+    grid-column: 5 / span 4;
   }
 }
 
@@ -1041,6 +1120,7 @@ noscript {
   .mascot-panel,
   .projects-panel,
   .designs-panel,
+  .photography-panel,
   .contact-shell {
     grid-column: 1;
   }
@@ -1113,6 +1193,7 @@ noscript {
   .stack-panel,
   .projects-panel,
   .designs-panel,
+  .photography-panel,
   .contact-face {
     padding: 18px;
   }
