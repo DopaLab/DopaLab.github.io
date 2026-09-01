@@ -141,6 +141,7 @@ function initSlideshow({ slideSelector, dotSelector, previousSelector, nextSelec
       const isActive = slideIndex === activeIndex;
       slide.classList.toggle("is-active", isActive);
       slide.setAttribute("aria-hidden", String(!isActive));
+      slide.tabIndex = isActive ? 0 : -1;
     });
 
     dots.forEach((dot, dotIndex) => {
@@ -195,6 +196,72 @@ initSlideshow({
   nextSelector: ".photography-next",
   delay: 8000,
 });
+
+function initImagePreview() {
+  const previewSlides = Array.from(
+    document.querySelectorAll(".design-slide, .photography-slide"),
+  );
+
+  if (!previewSlides.length) {
+    return;
+  }
+
+  const dialog = document.createElement("dialog");
+  dialog.className = "image-preview";
+  dialog.setAttribute("aria-labelledby", "image-preview-caption");
+  dialog.innerHTML = `
+    <div class="image-preview-frame">
+      <img class="image-preview-image" alt="" />
+      <a class="image-preview-original" target="_blank" rel="noreferrer">FULL SIZE &#8599;</a>
+      <button class="image-preview-close" type="button" aria-label="Close image preview">&#215;</button>
+      <p class="image-preview-caption" id="image-preview-caption"></p>
+    </div>
+  `;
+  document.body.append(dialog);
+
+  const previewImage = dialog.querySelector(".image-preview-image");
+  const previewCaption = dialog.querySelector(".image-preview-caption");
+  const originalLink = dialog.querySelector(".image-preview-original");
+  const closeButton = dialog.querySelector(".image-preview-close");
+
+  const openPreview = (slide) => {
+    const image = slide.querySelector("img");
+    const caption = slide.querySelector("figcaption")?.textContent.trim() || image.alt;
+    const fullSource = image.dataset.fullSrc || image.currentSrc || image.src;
+
+    previewImage.src = fullSource;
+    previewImage.alt = image.alt;
+    previewCaption.textContent = caption;
+    originalLink.href = fullSource;
+    dialog.showModal();
+    closeButton.focus();
+  };
+
+  previewSlides.forEach((slide) => {
+    const caption = slide.querySelector("figcaption")?.textContent.trim() || "image";
+    slide.setAttribute("role", "button");
+    slide.setAttribute("aria-label", `Preview ${caption} in full quality`);
+    slide.addEventListener("click", () => openPreview(slide));
+    slide.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openPreview(slide);
+      }
+    });
+  });
+
+  closeButton.addEventListener("click", () => dialog.close());
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) {
+      dialog.close();
+    }
+  });
+  dialog.addEventListener("close", () => {
+    previewImage.removeAttribute("src");
+  });
+}
+
+initImagePreview();
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && contactCard.classList.contains("is-flipped")) {
