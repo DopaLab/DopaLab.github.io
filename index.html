@@ -143,9 +143,7 @@
             <span class="mascot-caption">A small hand for big ideas.</span>
           </div>
         </section>
-        </div>
 
-        <div class="portfolio-column right-column">
         <section class="panel projects-panel" aria-labelledby="projects-title">
           <div class="panel-heading">
             <div>
@@ -155,6 +153,51 @@
             <span class="panel-code">QUEUE</span>
           </div>
           <div id="project-list" class="project-list" aria-live="polite"></div>
+          <div class="slideshow-controls project-slider-controls">
+            <button class="slideshow-button projects-prev" type="button" aria-label="Previous apps">&#8592;</button>
+            <div class="projects-progress" aria-hidden="true"></div>
+            <button class="slideshow-button projects-next" type="button" aria-label="Next apps">&#8594;</button>
+          </div>
+        </section>
+        </div>
+
+        <div class="portfolio-column right-column">
+        <section class="panel playdeck-panel" aria-labelledby="playdeck-title">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow orange">// WINDOWS GAME LAUNCHER</p>
+              <h2 id="playdeck-title">PLAYDECK</h2>
+            </div>
+            <span class="panel-code">DESKTOP</span>
+          </div>
+          <div class="playdeck-intro">
+            <img class="playdeck-icon" src="assets/playdeck-icon.png" alt="Playdeck app icon" />
+            <div>
+              <strong>YOUR GAMES. ONE SHELF.</strong>
+              <p>A local-first launcher for a library that feels personal, useful, and ready to play.</p>
+            </div>
+          </div>
+          <div class="playdeck-slideshow" aria-label="Playdeck application screenshots">
+            <figure class="playdeck-slide is-active">
+              <img src="assets/playdeck-library.png" data-full-src="assets/playdeck-library.png" alt="Playdeck library showing the current game collection" />
+              <figcaption>LIBRARY / RECENTLY PLAYED</figcaption>
+            </figure>
+            <figure class="playdeck-slide">
+              <img src="assets/playdeck-activity.png" data-full-src="assets/playdeck-activity.png" alt="Playdeck activity dashboard with playtime statistics" loading="lazy" />
+              <figcaption>ACTIVITY / PLAY PULSE</figcaption>
+            </figure>
+          </div>
+          <div class="slideshow-controls">
+            <button class="slideshow-button playdeck-prev" type="button" aria-label="Previous Playdeck screenshot">&#8592;</button>
+            <div class="playdeck-progress" aria-hidden="true"><span class="is-active"></span><span></span></div>
+            <button class="slideshow-button playdeck-next" type="button" aria-label="Next Playdeck screenshot">&#8594;</button>
+          </div>
+          <div class="playdeck-tags" aria-label="Playdeck features">
+            <span>LOCAL FIRST</span><span>PLAY HISTORY</span><span>INSTANT REPLAY</span>
+          </div>
+          <a class="project-source-link" href="https://github.com/DopaLab/playdeck" target="_blank" rel="noreferrer">
+            VIEW ON GITHUB <span aria-hidden="true">&#8599;</span>
+          </a>
         </section>
 
         <section class="panel stack-panel" aria-labelledby="stack-title">

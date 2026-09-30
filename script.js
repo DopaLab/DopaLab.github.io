@@ -67,6 +67,10 @@ const sideProjects = [
 const projectList = document.querySelector("#project-list");
 
 function renderProjects() {
+  const projectsPerPage = 4;
+  const projectProgress = document.querySelector(".projects-progress");
+  const projectControls = document.querySelector(".project-slider-controls");
+
   if (!sideProjects.length) {
     projectList.innerHTML = `
       <div class="empty-projects">
@@ -76,12 +80,23 @@ function renderProjects() {
         </div>
       </div>
     `;
+    projectControls.hidden = true;
     return;
   }
 
-  projectList.innerHTML = sideProjects
+  const projectPages = [];
+
+  for (let index = 0; index < sideProjects.length; index += projectsPerPage) {
+    projectPages.push(sideProjects.slice(index, index + projectsPerPage));
+  }
+
+  projectList.innerHTML = projectPages
     .map(
-      (project) => `
+      (projects, pageIndex) => `
+        <div class="project-page${pageIndex === 0 ? " is-active" : ""}">
+          ${projects
+            .map(
+              (project) => `
         <a
           class="side-project"
           href="${project.url || "#"}"
@@ -96,9 +111,18 @@ function renderProjects() {
             <small>${project.description || "New project details coming soon."}</small>
           </span>
         </a>
+              `,
+            )
+            .join("")}
+        </div>
       `,
     )
     .join("");
+
+  projectProgress.innerHTML = projectPages
+    .map((_, index) => `<span${index === 0 ? ' class="is-active"' : ""}></span>`)
+    .join("");
+  projectControls.hidden = projectPages.length < 2;
 }
 
 const contactCard = document.querySelector("#contact-card");
@@ -197,9 +221,17 @@ initSlideshow({
   delay: 8000,
 });
 
+initSlideshow({
+  slideSelector: ".playdeck-slide",
+  dotSelector: ".playdeck-progress span",
+  previousSelector: ".playdeck-prev",
+  nextSelector: ".playdeck-next",
+  delay: 7500,
+});
+
 function initImagePreview() {
   const previewSlides = Array.from(
-    document.querySelectorAll(".design-slide, .photography-slide"),
+    document.querySelectorAll(".design-slide, .photography-slide, .playdeck-slide"),
   );
 
   if (!previewSlides.length) {
@@ -272,3 +304,11 @@ document.addEventListener("keydown", (event) => {
 document.querySelector("#year").textContent = String(new Date().getFullYear());
 
 renderProjects();
+
+initSlideshow({
+  slideSelector: ".project-page",
+  dotSelector: ".projects-progress span",
+  previousSelector: ".projects-prev",
+  nextSelector: ".projects-next",
+  delay: 7000,
+});

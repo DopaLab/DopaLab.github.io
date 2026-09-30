@@ -715,10 +715,38 @@ h2 {
 
 .project-list {
   min-height: 185px;
-  display: grid;
+  position: relative;
+  margin-top: 25px;
+  overflow: hidden;
+}
+
+.project-page {
+  display: none;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
-  margin-top: 25px;
+}
+
+.project-page.is-active {
+  display: grid;
+}
+
+.project-slider-controls {
+  margin-top: 12px;
+}
+
+.projects-progress {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.projects-progress span {
+  height: 4px;
+  background: #3c434a;
+}
+
+.projects-progress span.is-active {
+  background: var(--blue);
 }
 
 .empty-projects,
@@ -802,6 +830,122 @@ h2 {
   font-family: "Rajdhani", sans-serif;
   font-size: 9px;
   line-height: 1.25;
+}
+
+.playdeck-panel {
+  min-height: 330px;
+  padding: 22px;
+  background: #101419;
+}
+
+.playdeck-intro {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.playdeck-icon {
+  width: 64px;
+  height: 64px;
+  display: block;
+  object-fit: contain;
+}
+
+.playdeck-intro strong {
+  display: block;
+  color: var(--paper);
+  font-size: 17px;
+  font-weight: 950;
+}
+
+.playdeck-intro p {
+  margin: 5px 0 0;
+  color: #92999f;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.playdeck-slideshow {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin-top: 20px;
+  overflow: hidden;
+  background: #080a0c;
+  border: 1px solid #3c434a;
+}
+
+.playdeck-slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 0;
+  transition: opacity 700ms ease;
+}
+
+.playdeck-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+.playdeck-slide img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  background: #080a0c;
+  cursor: zoom-in;
+}
+
+.playdeck-slide figcaption {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 5px 7px;
+  background: rgba(7, 9, 11, 0.9);
+  border-left: 3px solid var(--blue);
+  color: var(--paper);
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.playdeck-slide:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: -3px;
+}
+
+.playdeck-progress {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.playdeck-progress span {
+  height: 4px;
+  background: #3c434a;
+}
+
+.playdeck-progress span.is-active {
+  background: var(--blue);
+}
+
+.playdeck-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.playdeck-tags span {
+  padding: 5px 7px;
+  border: 1px solid #424950;
+  color: #b7bdc1;
+  font-size: 9px;
+  font-weight: 900;
 }
 
 .designs-panel {
@@ -1256,6 +1400,7 @@ noscript {
   .vybrik-panel,
   .about-panel,
   .stack-panel,
+  .playdeck-panel,
   .mascot-panel,
   .projects-panel,
   .designs-panel,
@@ -1330,6 +1475,7 @@ noscript {
   .vybrik-panel,
   .about-panel,
   .stack-panel,
+  .playdeck-panel,
   .projects-panel,
   .designs-panel,
   .photography-panel,
